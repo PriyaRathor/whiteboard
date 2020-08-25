@@ -19,10 +19,10 @@ io.on("connection", function (socket) {
         socket.broadcast.emit("onmm", point);
     })
 })
-
-app.get("/", function (req, res) {
-    res.end("<h1>Welcome to home Page</h1>")
-})
+app.use(express.static("client"))    // to add front end in server only this one line is required.it adds by default index.html
+// app.get("/", function (req, res) {
+//     res.end("<h1>Welcome to home Page</h1>")
+// })
 //  connection
 let port = process.env.PORT || 3000;
 httpServer.listen(port, function () {
